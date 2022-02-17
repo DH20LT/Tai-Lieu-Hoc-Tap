@@ -1,0 +1,103 @@
+using System;
+
+namespace Mang2chieu
+{
+    class Program
+    {
+        static void Nhapsonguyen(out int n)
+        {
+                    Console.Write("Nhap vao so nguyen duong n");
+            do
+            {
+                n = Convert.ToInt32(Console.ReadLine());
+                if (n <= 0)
+                    Console.WriteLine("Nhap lai so nguyen duong");
+            } while (n <= 0);
+        }
+        static void Nhapmang2chieu(int[,]mang, int n)
+        {
+            for (int i = 0; i < n; i++)
+                for (int j = 0; j < n; j++)
+                {
+                    Console.Write("mang[{0},{1}]=", i, j);
+                    mang[i, j] = Convert.ToInt32(Console.ReadLine());
+                }
+        }
+        static void Xuatmang2chieu(int [,]mang, int n)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                    Console.Write(mang[i, j] + "  ");
+                Console.WriteLine();
+            }
+        }
+        static int Tongphantumang(int [,]mang, int n)
+        {
+            int tong = 0;
+            for (int i = 0; i < n; i++)
+                for (int j = 0; j < n; j++)
+                    tong = tong + mang[i, j];
+            return tong;
+
+        }
+        static void Xuatphantu(int [,]mang, int n)
+        {
+            int x;
+            Console.WriteLine("Nhap x");
+            x = int.Parse(Console.ReadLine());
+            for (int i = 0; i < n; i++)
+                for (int j = 0; j < n; j++)
+                    if (mang[i, j] > 1 && mang[i, j] < x)
+                        Console.Write(mang[i, j]);
+
+        }
+        static bool Songuyento (int n)
+        {
+            if (n < 2) return false;
+            for (int i = 2; i < n; i++)
+                if (n % i == 0) return false;
+            return true;
+        }
+        static void Lietkecacsonguyento(int[,] mang, int n)
+        {
+            int tong = 0;
+            for (int i = 0; i < n; i++)
+                for (int j = 0; j < n; j++)
+                    if (Songuyento(mang[i, j]))
+                    {
+                        Console.WriteLine(mang[i, j] + " ");
+                        tong = tong + mang[i, j];
+                    }
+            Console.WriteLine("Tong cua cac so nguyen to" + tong);
+        }
+        static void duongcheochinh(int [,]mang, int n)
+        {
+            for (int i=0; i<n;i++)
+                for(int j = 0; j<n; j++)
+                    if(i ==j) Console.WriteLine(mang[i, j] + " ");
+
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine("");
+            int n;
+            Nhapsonguyen(out n);
+            
+            int[,] mangnguyen = new int[n, n];
+
+            Console.WriteLine("Nhap mang hai chieu");
+            Nhapmang2chieu(mangnguyen, n);
+            Console.WriteLine("Xuat mang hai chieu");
+            Xuatmang2chieu(mangnguyen, n);
+            Console.WriteLine("Tong phan tu cua mang la " + Tongphantumang(mangnguyen, n));
+            Console.WriteLine("Xuat cac phan tu theo yeu cau");
+            Xuatphantu(mangnguyen, n);
+            Console.WriteLine("Cac so nguyen to trong mang");
+            Lietkecacsonguyento(mangnguyen, n);
+            Console.WriteLine("Cac phan tu duong cheo chinh la");
+            duongcheochinh(mangnguyen, n);
+            Console.ReadLine();
+        }
+    }
+}
