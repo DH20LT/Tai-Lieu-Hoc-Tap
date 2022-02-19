@@ -1,0 +1,353 @@
+
+namespace Tuan1
+{
+    class PhanSo
+    {
+        int tu, mau;
+        public int getTu()
+        {
+            return tu;
+        }
+        public int getMau()
+        {
+            return mau;
+        }
+        public void setTu()
+        {
+            Console.Write("Nhap tu so: ");
+            tu = int.Parse(Console.ReadLine());
+        }
+        public void setMau()
+        {
+            Console.Write("Nhap mau so: ");
+            mau = int.Parse(Console.ReadLine());
+        }
+        public void Nhap()
+        {
+            Console.Write("Nhap tu so: ");
+            tu = int.Parse(Console.ReadLine());
+            Console.Write("Nhap mau so: ");
+            mau = int.Parse(Console.ReadLine());
+        }
+        public void Nghichdao()
+        {
+            int tess = tu;
+            tu = mau;
+            mau = tess;
+        }
+        public double RutGon()
+        {
+            return (double)tu / mau;
+        }
+        public void Xuat()
+        {
+            Console.Write("Phan so: "+tu+" / "+mau);          
+        }
+    }
+    class Program
+    {
+        void NhanPhanSo(PhanSo ps1, PhanSo ps2)
+        {
+            Console.WriteLine("tu :" + (ps1.getTu() * ps2.getMau()));
+            Console.WriteLine("mau :" + (ps1.getMau() * ps2.getMau()));
+        }
+
+        void SoSanhPhanSo(PhanSo ps1, PhanSo ps2)
+        {
+            if (ps1.RutGon() > ps2.RutGon()) Console.WriteLine("Phan so 1 lon hon Phan so 2");
+            else Console.WriteLine("Phan so 2 lon hon Phan so 1");
+        }
+        void XuatHaiPhanSo(PhanSo ps1, PhanSo ps2)
+        {
+            
+            Console.WriteLine("phan so 1");
+            ps1.Xuat();
+            Console.WriteLine("phan so 2");
+            ps2.Xuat();
+        }
+        void ChiaPhanSo(PhanSo ps1, PhanSo ps2)
+        {
+            Console.WriteLine("tu :" + (ps1.getTu() * ps2.getMau()));
+            Console.WriteLine("mau :" + (ps1.getMau() * ps2.getTu()));
+        }
+        void CongPhanSo(PhanSo ps1, PhanSo ps2)
+        {
+            Console.WriteLine("tu :" + (ps1.getTu() * ps2.getMau() + ps2.getTu() * ps1.getMau()));
+            Console.WriteLine("mau :" + (ps1.getMau() * ps2.getMau()));
+        }
+        void TruPhanSo(PhanSo ps1, PhanSo ps2)
+        {
+            Console.WriteLine("tu :" + (ps1.getTu() * ps2.getMau() - ps2.getTu() * ps1.getMau()));
+            Console.WriteLine("mau :" + (ps1.getMau() * ps2.getMau()));
+        }
+        void OnePhanSo()
+        {
+            PhanSo phanSo = new PhanSo();
+            int i = 1;
+            while (i != 9)
+            {
+                Console.WriteLine("nhap ham: ");
+                Console.WriteLine("1: nhap gia tri");
+                Console.WriteLine("2: xuat tu");
+                Console.WriteLine("3: xuat mau");
+                Console.WriteLine("4: set tu");
+                Console.WriteLine("5: set mau");
+                Console.WriteLine("6: nghich dao");
+                Console.WriteLine("7: rut gon");
+                Console.WriteLine("8: xuat phan so");
+                Console.WriteLine("9: ket thuc");
+                i = int.Parse(Console.ReadLine());
+                switch (i)
+                {
+                    case 1:
+                        {
+                            Console.WriteLine("1: nhap gia tri");
+                            phanSo.Nhap();
+                            break;
+                        }
+                    case 2:
+                        {
+                            Console.WriteLine("2: xuat tu : " + phanSo.getTu());
+
+                            break;
+                        }
+                    case 3:
+                        {
+                            Console.WriteLine("3: xuat mau : " + phanSo.getTu());
+                            break;
+                        }
+                    case 4:
+                        {
+                            Console.WriteLine("4: set tu");
+                            phanSo.setTu();
+                            break;
+                        }
+                    case 5:
+                        {
+                            Console.WriteLine("5: set mau");
+                            phanSo.setMau();
+                            break;
+                        }
+                    case 6:
+                        {
+                            Console.WriteLine("6: nghich dao");
+                            phanSo.Nghichdao();
+                            break;
+                        }
+                    case 7:
+                        {
+                            Console.WriteLine("7: rut gon phan so: " + phanSo.RutGon());
+                            break;
+                        }
+                    case 8:
+                        {
+                            Console.WriteLine("8: xuat phan so");
+                            phanSo.Xuat();
+                            break;
+                        }
+                    case 9:
+                        {
+                            Console.WriteLine("9: ket thuc");
+                            break;
+                        }
+                    default:
+                        {
+                            Console.WriteLine("Ban nhap sai vui long nhap lai");
+                            break;
+                        }
+
+                }
+            }
+        }
+
+        void PhanSo(PhanSo phanSo)
+        {           
+            int i = 1;
+            while (i != 9)
+            {
+                Console.WriteLine("nhap ham: ");
+                Console.WriteLine("1: nhap gia tri");
+                Console.WriteLine("2: xuat tu");
+                Console.WriteLine("3: xuat mau");
+                Console.WriteLine("4: set tu");
+                Console.WriteLine("5: set mau");
+                Console.WriteLine("6: nghich dao");
+                Console.WriteLine("7: rut gon");
+                Console.WriteLine("8: xuat phan so");
+                Console.WriteLine("9: ket thuc");
+                i = int.Parse(Console.ReadLine());
+                switch (i)
+                {
+                    case 1:
+                        {
+                            Console.WriteLine("1: nhap gia tri");
+                            phanSo.Nhap();
+                            break;
+                        }
+                    case 2:
+                        {
+                            Console.WriteLine("2: xuat tu : " + phanSo.getTu());
+
+                            break;
+                        }
+                    case 3:
+                        {
+                            Console.WriteLine("3: xuat mau : " + phanSo.getTu());
+                            break;
+                        }
+                    case 4:
+                        {
+                            Console.WriteLine("4: set tu");
+                            phanSo.setTu();
+                            break;
+                        }
+                    case 5:
+                        {
+                            Console.WriteLine("5: set mau");
+                            phanSo.setMau();
+                            break;
+                        }
+                    case 6:
+                        {
+                            Console.WriteLine("6: nghich dao");
+                            phanSo.Nghichdao();
+                            break;
+                        }
+                    case 7:
+                        {
+                            Console.WriteLine("7: rut gon phan so: " + phanSo.RutGon());
+                            break;
+                        }
+                    case 8:
+                        {
+                            Console.WriteLine("8: xuat phan so");
+                            phanSo.Xuat();
+                            break;
+                        }
+                    case 9:
+                        {
+                            Console.WriteLine("9: ket thuc");
+                            break;
+                        }
+                    default:
+                        {
+                            Console.WriteLine("Ban nhap sai vui long nhap lai");
+                            break;
+                        }
+
+                }
+            }
+        }
+
+        void HaiPhanSo()
+        {
+            PhanSo phanSo1 = new PhanSo();
+            PhanSo phanSo2 = new PhanSo();
+            int i = 1;
+            while (i != 9)
+            {
+                Console.WriteLine("nhap ham: ");
+                Console.WriteLine("1: Phan so 1");
+                Console.WriteLine("2: Phan so 2");
+                Console.WriteLine("3: Cong hai phan so");
+                Console.WriteLine("4: Tru hai phan so");
+                Console.WriteLine("5: Nhan hai phan so");
+                Console.WriteLine("6: Chia hai phan so");
+                Console.WriteLine("7: so sanh");
+                Console.WriteLine("8: xuat 2 phan so");
+                Console.WriteLine("9: ket thuc");
+                i = int.Parse(Console.ReadLine());
+                switch (i)
+                {
+                    case 1:
+                        {
+                            Console.WriteLine("1: Phan so 1");
+                            PhanSo(phanSo1);
+                            break;
+                        }
+                    case 2:
+                        {
+                            Console.WriteLine("2: Phan so 2");
+                            PhanSo(phanSo2);
+                            break;
+                        }
+                    case 3:
+                        {
+                            Console.WriteLine("3: Cong hai phan so");
+                            CongPhanSo(phanSo1, phanSo2);
+                            break;
+                        }
+                    case 4:
+                        {
+                            Console.WriteLine("4: Tru hai phan so");
+                            TruPhanSo(phanSo1, phanSo2);
+                            break;
+                        }
+                    case 5:
+                        {
+                            Console.WriteLine("5: Nhan hai phan so");
+                            NhanPhanSo(phanSo1, phanSo2);
+                            break;
+                        }
+                    case 6:
+                        {
+                            Console.WriteLine("6: Chia hai phan so");
+                            ChiaPhanSo(phanSo1, phanSo2);
+                            break;
+                        }
+                    case 7:
+                        {
+                            Console.WriteLine("7: so sanh");
+                            SoSanhPhanSo(phanSo1,phanSo2);
+                            break;
+                        }
+                    case 8:
+                        {
+                            Console.WriteLine("8: xuat 2 phan so");
+                            XuatHaiPhanSo(phanSo1, phanSo2);
+                            break;
+                        }
+                    case 9:
+                        {
+                            Console.WriteLine("9: ket thuc");
+                            break;
+                        }
+                }
+            }
+        }
+        static void Main(string[] args)
+        {
+            Program p = new Program();
+            int i = 1;
+            while (i != 3)
+            {
+                Console.WriteLine("nhap so luong phan so: ");
+                Console.WriteLine("1: 1 phan so");
+                Console.WriteLine("2: 2 phan so");
+                Console.WriteLine("3: Ket thuc");
+                i = int.Parse(Console.ReadLine());
+                switch (i)
+                {
+                    case 1:
+                        {
+                            Console.WriteLine("1: 1 phan so");
+                            p.OnePhanSo();
+                            break;
+                        }
+                    case 2:
+                        {
+                            Console.WriteLine("2: 2 phan so");
+                            p.HaiPhanSo();
+                            break;
+                        }
+                    case 3:
+                        {
+                            Console.WriteLine("3: Ket thuc");
+
+                            break;
+                        }
+                }
+            }
+        }
+    }
+}

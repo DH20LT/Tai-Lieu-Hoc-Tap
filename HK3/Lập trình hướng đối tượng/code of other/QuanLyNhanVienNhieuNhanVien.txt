@@ -1,0 +1,190 @@
+namespace QuanLyNhanVien
+{   
+    class NhanVien
+    {
+        int MaNhanVien, Luong;
+        string Ten, ChucVu;
+        public void NhapThongTin()
+        {
+            Console.Write("Nhap Ma Nhan Vien: ");
+            MaNhanVien = int.Parse(Console.ReadLine());
+            Console.Write("Nhap Ten Nhan Vien: ");
+            Ten = Console.ReadLine();
+            Console.Write("Nhap Chuc Vu Nhan Vien: ");
+            ChucVu = Console.ReadLine();
+            Console.Write("Nhap luong Nhan Vien: ");
+            Luong = int.Parse(Console.ReadLine());
+        }
+        public void XuatThongTin()
+        {
+            Console.WriteLine("Ma Nhan Vien: "+MaNhanVien);
+            Console.WriteLine("Ten Nhan Vien: "+Ten);
+            Console.WriteLine("Chuc Vu Nhan Vien: "+ChucVu);
+            Console.WriteLine("luong Nhan Vien: "+Luong);
+        }
+        public void updateLuong()
+        {
+            if (ChucVu.Equals("truongphong"))
+            {
+                Luong = Luong * 120 / 100;
+            }
+            else
+            {
+                if (ChucVu.Equals("phophong"))
+                {
+                    Luong = Luong * 110 / 100;
+                }                
+            }
+        }
+    }
+    class Program
+    {
+        void MotNhanVien()
+        {
+            NhanVien nhanVien = new NhanVien();
+            nhanVien.NhapThongTin();
+            int i = 0;
+            while (i != 4)
+            {
+                Console.WriteLine("Nhap phuong thuc :");
+                Console.WriteLine("1 :Nhap Lai Thong Tin");
+                Console.WriteLine("2 :Xuat Thong Tin");
+                Console.WriteLine("3 :update Luong");
+                Console.WriteLine("4 :ket thuc");
+                i = int.Parse(Console.ReadLine());
+                switch (i)
+                {
+                    case 1:
+                        {
+                            nhanVien.NhapThongTin();
+                            break;
+                        }
+                    case 2:
+                        {
+                            nhanVien.XuatThongTin();
+                            break;
+                        }
+                    case 3:
+                        {
+                            nhanVien.updateLuong();
+                            break;
+                        }
+                    case 4:
+                        {
+                            Console.WriteLine("ket thuc");
+                            break;
+                        }
+                    default:
+                        {
+                            Console.WriteLine("Nhap sai phuong thuc: ");
+                            break;
+                        }
+                }
+            }
+        }
+
+        void phantu(NhanVien nhanVien)
+        {           
+            int i = 0;
+            while (i != 4)
+            {
+                Console.WriteLine("Nhap phuong thuc :");
+                Console.WriteLine("1 :Nhap Lai Thong Tin");
+                Console.WriteLine("2 :Xuat Thong Tin");
+                Console.WriteLine("3 :update Luong");
+                Console.WriteLine("4 :ket thuc");
+                i = int.Parse(Console.ReadLine());
+                switch (i)
+                {
+                    case 1:
+                        {
+                            nhanVien.NhapThongTin();
+                            break;
+                        }
+                    case 2:
+                        {
+                            nhanVien.XuatThongTin();
+                            break;
+                        }
+                    case 3:
+                        {
+                            nhanVien.updateLuong();
+                            break;
+                        }
+                    case 4:
+                        {
+                            Console.WriteLine("ket thuc");
+                            break;
+                        }
+                    default:
+                        {
+                            Console.WriteLine("Nhap sai phuong thuc: ");
+                            break;
+                        }
+                }
+            }
+        }
+
+        void NhieuNhanVien()
+        {
+            NhanVien nhanVien;
+            NhanVien nv1 = new NhanVien();
+            NhanVien nv2 = new NhanVien();
+
+            int i = 1;
+            while (i != 3)
+            {
+                Console.WriteLine("chon nhan vien: ");
+                Console.WriteLine("1: nhan vien 1: ");
+                Console.WriteLine("2: nhan vien 2: ");
+                i = int.Parse(Console.ReadLine());
+                switch (i)
+                {
+                    case 1:
+                        {
+                            Console.WriteLine("nhan vien 1: ");
+                            phantu(nv1);
+                            break;
+                        }
+                    case 2:
+                        {
+                            Console.WriteLine("nhan vien 2: ");
+                            phantu(nv2);
+                            break;
+                        }
+                }
+            }
+           
+        }
+        static void Main(string[] args)
+        {
+            Program p = new Program();
+            int i = 1;
+            while (i != 3)
+            {
+                Console.WriteLine("So luong nhan vien 1/2, 3 :ket thuc");
+                i = int.Parse(Console.ReadLine());
+                switch (i)
+                {
+                    case 1:
+                        {
+                            p.MotNhanVien();
+                            break;
+                        }
+                    case 2:
+                        {
+                            p.NhieuNhanVien();
+                            break;
+                        }
+                    case 3:
+                        {
+                            Console.WriteLine("ket thuc chuong trinh");
+                            break;
+                        }
+                }
+            }
+            
+            Console.ReadKey();
+        }
+    }
+}

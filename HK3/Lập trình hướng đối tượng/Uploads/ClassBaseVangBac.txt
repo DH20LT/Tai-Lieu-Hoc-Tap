@@ -1,0 +1,404 @@
+namespace QuanLyCuaHangVangBac
+{
+	class VangBac
+	{
+		protected string maSP;
+		protected string tenSP;
+		protected string hangSX;
+		protected int donGia; // Đơn Giá
+
+		public VangBac()
+		{//Ham Khoi Tao
+			maSP = "";
+			tenSP = "";
+			hangSX = "";
+			donGia = 0;
+		}
+		public VangBac(string maSP, string tenSP, string hangSX, int donGia)
+		{
+			this.maSP = maSP;
+			this.tenSP = tenSP;
+			this.hangSX = hangSX;
+			this.donGia = donGia;
+		}
+		public void setMaSP(string maSP)
+		{
+			this.maSP = maSP;
+		}
+		public void setTenSP(string tenSP)
+		{
+			this.tenSP = tenSP;
+		}
+		public void setHangSX(string hangSX)
+		{
+			this.hangSX = hangSX;
+		}
+		public void setDonGia(int donGia)
+		{
+			this.donGia = donGia;
+		}
+		public string getMasp()
+		{
+			return maSP;
+		}
+		public string getTensp()
+		{
+			return tenSP;
+		}
+		public string getHangsx()
+		{
+			return hangSX;
+		}
+		public int getDongia()
+		{
+			return donGia;
+		}
+		public virtual void NhapThongTin()
+		{
+			Console.Write("Nhap ma san pham: ");
+			maSP = Console.ReadLine();
+			Console.Write("Nhap ma Ten san pham: ");
+			tenSP = Console.ReadLine();
+			Console.Write("Nhap hang san xuat: ");
+			hangSX = Console.ReadLine();
+			Console.Write("Nhap dong gia: ");
+			donGia = int.Parse(Console.ReadLine());
+		}
+		public virtual void XuatThongTin()
+		{
+			Console.WriteLine("--------------------------------");
+			Console.WriteLine("Xuat ma san pham: " + maSP);
+			Console.WriteLine("Xuat ten san pham: " + tenSP);
+			Console.WriteLine("Xuat hang san xuat: " + hangSX);
+			Console.WriteLine("Xuat don gia: " + donGia);
+		}
+
+	}
+	
+	class Vang : VangBac
+	{
+		int tuoiVang;
+		string loaiVang;
+		int soLuong;
+
+		public Vang() : base()
+		{
+			tuoiVang = 0;
+			loaiVang = "";
+			soLuong = 0;
+		}		
+		public Vang(string maSP, string tenSP, string hangSX, int donGia,
+			int tuoiVang, string loaiVang, int soLuong)
+			: base (maSP, tenSP, hangSX, donGia)
+		{
+			this.tuoiVang = tuoiVang;
+			this.loaiVang = loaiVang;
+			this.soLuong = soLuong;
+		}
+		public void setTuoivang(int tuoiVang)
+		{
+			this.tuoiVang = tuoiVang;
+		}
+		public void setLoai(string loaiVang)
+		{
+			this.loaiVang = loaiVang;
+		}
+		public void setSoluong(int soLuong)
+		{
+			this.soLuong = soLuong;
+		}
+		public int getTuoivang()
+		{
+			return tuoiVang;
+		}
+		public string getLoai()
+		{
+			return loaiVang;
+		}
+		public int getSoluong()
+		{
+			return soLuong;
+		}
+		public override void NhapThongTin()
+		{
+			Console.WriteLine("--------------------------------");
+			base.NhapThongTin();
+			Console.Write("Nhap Tuoi Vang: ");
+			tuoiVang = int.Parse(Console.ReadLine());
+			Console.Write("Nhap Loai: ");
+			loaiVang = Console.ReadLine();
+			Console.Write("Nhap So Luong: ");
+			soLuong = int.Parse(Console.ReadLine());
+		}
+		public override void XuatThongTin()
+		{
+			base.XuatThongTin();
+			Console.WriteLine("Tuoi Vang la: " + tuoiVang);
+			Console.WriteLine("Loai Vang la: " + loaiVang);
+			Console.WriteLine("So luong la: " + soLuong);
+			Console.WriteLine("--------------------------------");
+		}
+		public float XetGiamGia()
+        {
+			if (this.getTuoivang() == 96 && this.getLoai() == "Nhan")
+            {
+				return 3;
+            } 
+			else if (this.getTuoivang() == 97 && this.getLoai() == "Nhan")
+            {
+				return 2;
+            } 
+			else if (this.getTuoivang() == 98 && this.getLoai() == "Nhan")
+            {
+				return 1;
+            } 
+			else 
+			{ 
+				return 0;
+			}
+        }
+		public void TinhTongTien()
+        {
+			float TongTien = this.getDongia()/100 * (100 - this.XetGiamGia());
+			Console.Write("Tong tien la: " + TongTien);
+        }
+	
+	class Bac : VangBac
+    {
+		string kieuBac;
+		string loaiBac;
+		int soLuong;
+
+		public Bac() : base()
+		{
+			kieuBac = "";
+			loaiBac = "";
+			soLuong = 0;
+		}
+		public Bac(string maSP, string tenSP, string hangSX, int donGia,
+			string kieuBac, string loaiBac, int soLuong)
+			: base(maSP, tenSP, hangSX, donGia)
+		{
+			this.kieuBac = kieuBac;
+			this.loaiBac = loaiBac;
+			this.soLuong = soLuong;
+		}
+		public void setKieuBac(string kieuBac)
+		{
+			this.kieuBac = kieuBac;
+		}
+		public void setLoai(string loaiBac)
+		{
+			this.loaiBac = loaiBac;
+		}
+		public void setSoluong(int soLuong)
+		{
+			this.soLuong = soLuong;
+		}
+		public string getKieuBac()
+		{
+			return kieuBac;
+		}
+		public string getLoai()
+		{
+			return loaiBac;
+		}
+		public int getSoluong()
+		{
+			return soLuong;
+		}
+		public override void NhapThongTin()
+		{
+			Console.WriteLine("--------------------------------");
+			base.NhapThongTin();
+			Console.Write("Nhap Kieu Bac: ");
+			kieuBac = (Console.ReadLine());
+			Console.Write("Nhap Loai Bac: ");
+			loaiBac = Console.ReadLine();
+			Console.Write("Nhap So Luong: ");
+			soLuong = int.Parse(Console.ReadLine());
+		}
+		public override void XuatThongTin()
+		{
+			base.XuatThongTin();
+			Console.WriteLine("Kieu Bac la: " + kieuBac);
+			Console.WriteLine("Loai Bac la: " + loaiBac);
+			Console.WriteLine("So luong la: " + soLuong);
+			Console.WriteLine("--------------------------------");
+		}
+		public int XetGiamGia()
+		{
+			if (this.getKieuBac() == "Day chuyen" && this.getLoai() == "8k")
+			{
+				return 4;
+			}
+			else if (this.getKieuBac() == "Lac" && this.getLoai() == "10k")
+			{
+				return 2;
+			}
+			else { return 0; }
+		}
+		public void TinhTongTien()
+		{
+			float TongTien = this.getDongia()/100 * (100 - this.XetGiamGia());
+			Console.Write("Tong tien la: " + TongTien);
+		}
+	}
+class Program
+    {
+        static void Main(string[] args)
+        {
+            VangBac[] arrVangBac = new VangBac[50];
+            int iVangBac = 0;
+            //int l, j, tmp;
+            Console.WriteLine("1. Nhap Thong Tin San Pham");
+            Console.WriteLine("2. Xuat ra các san pham Vang");
+            Console.WriteLine("3. Xuat ra cac san pham duoc san xuat boi hang PNJ");
+            Console.WriteLine("4. Xuat ra cac san pham la Bac loai 10k");
+            Console.WriteLine("5. Xuat ra cac san pham la Bac kieu Day chuyen");
+            Console.WriteLine("6. Sap xep cac san pham co gia tang dan");
+            Console.WriteLine("7. Thoát");
+            Console.Write("Nhập chức năng bạn muốn sự dụng: ");
+            int i = 1;
+            while (i < 50)
+            {
+                int ChucNang = int.Parse(Console.ReadLine());
+                switch (ChucNang)
+                {
+                    case 1: //Nhập thông tin sản phẩm
+                        {
+                            //Console.WriteLine("--------------------------------");
+                            //Console.Write("Ban muon nhap Vang hay Bac?");
+                            //string LoaiSanPham = Console.ReadLine();
+                            //if(LoaiSanPham == "Vang")
+                            //{
+                            //    iVangBac++;
+                            //    arrVangBac[iVangBac] = new Vang();
+                            //    arrVangBac[iVangBac].NhapThongTin();
+                            //}
+                            //else if(LoaiSanPham == "Bac")
+                            //{
+                            //    iVangBac++;
+                            //    arrVangBac[iVangBac] = new Bac();
+                            //    arrVangBac[iVangBac].NhapThongTin();
+                            //}
+                            Console.WriteLine("--------------------------------");
+                            Console.WriteLine("Vang = 1 | Bac = 2");
+                            Console.Write("Nhap: ");
+                            int LoaiSanPham = int.Parse(Console.ReadLine());
+                            switch (LoaiSanPham)
+                            {
+                                case 1:
+                                    {
+                                        iVangBac++;
+                                        arrVangBac[iVangBac] = new Vang();
+                                        arrVangBac[iVangBac].NhapThongTin();
+                                        break;
+                                    }
+                                case 2:
+                                    {
+                                        iVangBac++;
+                                        arrVangBac[iVangBac] = new Bac();
+                                        arrVangBac[iVangBac].NhapThongTin();
+                                        break;
+                                    }
+                                default:
+                                    break;
+                            }
+
+                            break;
+                        }
+                    case 2:
+                        {
+                            for (int ThuTu = 1; ThuTu < iVangBac; ThuTu++)
+                            {
+                                if (arrVangBac[ThuTu].getLoaiSP() == 1)
+                                {
+                                    arrVangBac[ThuTu].XuatThongTin();
+                                }
+                            }
+                            break;
+                        }
+                    case 3:
+                        {
+                            for (int ThuTu = 1; ThuTu < iVangBac; ThuTu++)
+                            {
+                                if (arrVangBac[ThuTu].getHangsx() == "PNJ")
+                                {
+                                    arrVangBac[ThuTu].XuatThongTin();
+                                }
+                            }
+                            break;
+                        }
+                    case 4: // Xuat ra tat ca san pham la Bac loai 10k
+                        {
+                            for (int ThuTu = 1; ThuTu < iVangBac; ThuTu++)
+                            {
+                                if (arrVangBac[ThuTu].getLoaiSP() == 2)
+                                {
+                                    XuatBac10k((Bac)arrVangBac[ThuTu]);
+                                }
+                            }
+                            break;
+                        }
+                    case 5:
+                        {
+                            for (int ThuTu = 1; ThuTu < iVangBac; ThuTu++)
+                            {
+                                if (arrVangBac[ThuTu].getLoaiSP() == 2)
+                                {
+                                    XuatBacDayChuyen((Bac)arrVangBac[ThuTu]);
+                                }
+                            }
+                            break;
+                        }
+                    case 6: // Sap xep cac san pham co gia tang dan
+                        {
+                            SapSepDonGiaTangDan(arrVangBac)
+                            break;
+                        }
+                    default:
+                        break;
+                }
+                
+                i++;
+            }
+        }
+        public static void XuatBac10k(Bac bac1)
+        {
+            if (bac1.getLoaiBac() == "10k")
+            {
+                bac1.XuatThongTin();
+            }
+        }
+        public static void XuatBacDayChuyen(Bac bac1)
+        {
+            if (bac1.getKieuBac().Equals("Day chuyen"))
+            {
+                bac1.XuatThongTin();
+            }
+        }
+	void SapSepDonGiaTangDan(VangBac[] vangBac, int index)
+        {
+            VangBac[] arrVangBac = vangBac;
+            for (int i = 1; i < index; i++)
+            {
+                for (int j = 1; j < index - 1; j++)
+                {
+                    if(arrVangBac[j].getDongia() > arrVangBac[j + 1].getDongia())
+                    {
+                        VangBac tam = arrVangBac[j+1];
+                        arrVangBac[j + 1]= arrVangBac[j];
+                        arrVangBac[j] = tam;
+                    }
+                }
+            }
+            for (int i = 1; i < index; i++)
+            {
+                arrVangBac[i].Xuat();
+            }
+        }
+
+    }
+
+}

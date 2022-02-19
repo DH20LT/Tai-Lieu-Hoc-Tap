@@ -1,0 +1,34 @@
+if (iVong > 0)
+                    {
+                        arrDan = DanChamBien(arrDan, ref slDan);
+                        arrDan = VaCham(arrDan, ref slDan, arrListVatCan, iSoDongArr);
+                        updateDan(arrDan, ref slDan);
+                        arrListVatCan = updateDongVatCan(arrListVatCan, ref iSoDongArr);
+                    }
+                    //them dong vat can
+                    if (iVong == maxVong || iVong == 0)
+                    {
+                        AddDongCanList(ref iSoDongArr, arrListVatCan, AddDVatCan(iSoLuongVatCan, iMaMau, wight));
+                        iVong = 1;
+                        if (iVong != 0) UpdateVatCan(arrListVatCan, iSoDongArr);
+                    }
+                    else
+                    {
+                        iVong++;
+                    }
+                    //dan
+                    AddDan(mainDT.ToaDo.x, height, iMaMau, arrDan, slDan);
+                    //venhap
+                    mau = nhap(mainDT, arrListVatCan, height, wight, iSoDongArr, iSoLuongVatCan, arrDan, slDan);
+                    //xuat nhap
+                    if (iSoDongArr < height - 1)
+                    {
+                        UpdateUI(mau, height, wight);
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.SetCursorPosition(wight / 2, height / 2);
+                        Console.Write("ban dat: " + (iDiem) + " diem");
+                        break;
+                    }

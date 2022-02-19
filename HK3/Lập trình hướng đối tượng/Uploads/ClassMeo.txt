@@ -1,0 +1,75 @@
+abstract class Thu
+    {
+        int maThu, loaiThu;
+        string tenThu, nguonGoc;
+        /* 1 - Meo
+         * 2 - Cho
+         * 3 - Chim
+         */
+        public int getMaThu() { return maThu; }
+        public void setMaThu(int maThu) { this.maThu = maThu; }
+        public string getTenThu() { return tenThu; }
+        public void setTenThu(string tenThu) { this.tenThu = tenThu; }
+        public string getNguonGoc() { return nguonGoc; }
+        public void setNguonGoc(string nguonGoc) { this.nguonGoc = nguonGoc; }
+        public int getLoaiThu() { return loaiThu; }
+        public void setLoaiThu(int loaiThu) { this.loaiThu = loaiThu; }
+        public virtual void NhapThongTin() 
+        {
+            Console.WriteLine("Nhap Ma Thu: ");
+            maThu = int.Parse(Console.ReadLine());
+            Console.WriteLine("Nhap Ten Thu: ");
+            tenThu = Console.ReadLine();
+            Console.WriteLine("Nhap Nguon Goc: ");
+            nguonGoc = Console.ReadLine();
+        } //Nhap Cac Thuoc Tinh
+        public virtual void XuatThongTin() 
+        {
+            Console.WriteLine(" Ma Thu: " + maThu);
+            Console.WriteLine(" Ten Thu: " + tenThu);
+            Console.WriteLine(" Nguon Goc: " + nguonGoc);
+        } //Xuat Cac Thuoc Tinh
+        public abstract void tiengKeu();
+        public abstract void thucAn();
+    }
+class Meo : Thu
+    {
+        string giongMeo; //AnDo, My, TayBanNha, Anh
+        public Meo()
+        {
+            this.setMaThu(0);
+            this.setLoaiThu(1);
+            this.setTenThu(" ");
+            this.setNguonGoc("");
+            this.setGiongMeo("");
+        }
+        public Meo(int maThu, string tenThu, string nguonGoc, string giongMeo)
+        {
+            this.setLoaiThu(1);
+            this.setMaThu(maThu);
+            this.setTenThu(tenThu);
+            this.setNguonGoc(nguonGoc);
+            this.setGiongMeo(giongMeo);
+        }
+        public string getGiongMeo() { return giongMeo; }
+        public void setGiongMeo(string giongMeo) { this.giongMeo = giongMeo; }
+        public override void tiengKeu()
+        {
+            Console.WriteLine("Meo Meo");
+        }
+        public override void thucAn()
+        {
+            Console.WriteLine("Chuot");
+        }
+        public override void NhapThongTin()
+        {
+            base.NhapThongTin();
+            Console.WriteLine("Nhap Giong Meo: ");
+            giongMeo = Console.ReadLine();
+        }
+        public override void XuatThongTin() 
+        {
+            base.XuatThongTin();
+            Console.WriteLine("Giong Meo" + giongMeo);
+        }
+    }

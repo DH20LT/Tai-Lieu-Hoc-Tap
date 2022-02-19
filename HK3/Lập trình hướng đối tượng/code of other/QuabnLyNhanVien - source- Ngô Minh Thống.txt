@@ -1,0 +1,87 @@
+namespace QuanLyNhanVien
+{   
+    class NhanVien
+    {
+        int MaNhanVien, Luong;
+        string Ten, ChucVu;
+        public void NhapThongTin()
+        {
+            Console.Write("Nhap Ma Nhan Vien: ");
+            MaNhanVien = int.Parse(Console.ReadLine());
+            Console.Write("Nhap Ten Nhan Vien: ");
+            Ten = Console.ReadLine();
+            Console.Write("Nhap Chuc Vu Nhan Vien: ");
+            ChucVu = Console.ReadLine();
+            Console.Write("Nhap luong Nhan Vien: ");
+            Luong = int.Parse(Console.ReadLine());
+        }
+        public void XuatThongTin()
+        {
+            Console.WriteLine("Ma Nhan Vien: "+MaNhanVien);
+            Console.WriteLine("Ten Nhan Vien: "+Ten);
+            Console.WriteLine("Chuc Vu Nhan Vien: "+ChucVu);
+            Console.WriteLine("luong Nhan Vien: "+Luong);
+        }
+        public void updateLuong()
+        {
+            if (ChucVu.Equals("truongphong"))
+            {
+                Luong = Luong * 120 / 100;
+            }
+            else
+            {
+                if (ChucVu.Equals("phophong"))
+                {
+                    Luong = Luong * 110 / 100;
+                }                
+            }
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            NhanVien nhanVien = new NhanVien();
+            nhanVien.NhapThongTin();
+            int i = 0;
+            while(i!=4)
+            {
+                Console.WriteLine("Nhap phuong thuc :");
+                Console.WriteLine("1 :Nhap Lai Thong Tin");
+                Console.WriteLine("2 :Xuat Thong Tin");
+                Console.WriteLine("3 :update Luong");
+                Console.WriteLine("4 :ket thuc");
+                i = int.Parse(Console.ReadLine());
+                switch (i)
+                {
+                    case 1:
+                        {
+                            nhanVien.NhapThongTin();
+                            break;
+                        }
+                    case 2:
+                        {
+                            nhanVien.XuatThongTin();
+                            break;
+                        }
+                    case 3:
+                        {
+                            nhanVien.updateLuong();
+                            break;
+                        }
+                    case 4:
+                        {
+                            Console.WriteLine("ket thuc");
+                            break;
+                        }
+                    default:
+                        {
+                            Console.WriteLine("Nhap sai phuong thuc: ");
+                            break;
+                        }
+                }
+            }
+            Console.ReadKey();
+        }
+    }
+}

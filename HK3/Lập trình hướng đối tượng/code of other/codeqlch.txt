@@ -1,0 +1,377 @@
+using System;
+
+namespace CuaHangKimHoa
+{
+    
+    class VangBac
+    {
+        int masp;
+        string tensp, hangsx;
+        float dongia;
+        bool vang;
+        public VangBac()
+        {
+            masp = 0;
+            tensp = "";
+            hangsx = "";
+            dongia = 0;
+            vang = true;
+        }
+        public VangBac(int masp,string tensp,string hangsx,float dongia)
+        {
+            this.masp= masp ;
+            this.tensp = tensp ;
+            this.hangsx = hangsx ;
+            this.dongia = dongia ;
+        }
+        protected int getMa() { return masp; }
+        protected string getTen() { return tensp; }
+        public string getHang() { return hangsx; }
+        public float getDongia() { return dongia; }
+        protected void setMa(int ma) { masp = ma; }
+        protected void setTen(string ten) { tensp = ten; }
+        protected void setHang(string hang) { hangsx = hang; }
+        protected void setDon(float don) { dongia = don; }
+        public bool getVang() { return vang; }
+        protected void setVang(bool vang) { this.vang = vang; }
+        public double kt_Nhap()
+        {
+            double tra = 0;
+            while (tra == 0)
+            {
+                try
+                {
+                    tra = double.Parse(Console.ReadLine());
+                }
+                catch
+                {
+                    Console.Write("ban nhap khong phai la so vui long nhap lai");
+                }
+            }
+            return tra;
+        }
+        public virtual void Nhap()
+        {
+            Console.Write("ma sp: ");
+            masp= (int)kt_Nhap();
+            Console.Write("ten sp: ");
+            tensp= Console.ReadLine();
+            Console.Write("hang sp: ");
+            hangsx = Console.ReadLine();
+            Console.Write("gia sp: ");
+            dongia= (float)kt_Nhap();
+        }
+        public virtual void Xuat()
+        {
+            Console.Write("ma sp: " + masp);
+            Console.Write("ten sp: " + tensp);
+            Console.Write("hang sp: " + hangsx);
+            Console.Write("gia sp: " + dongia);
+        }
+    }
+    class Vang : VangBac
+    {
+        int tuoi,soluong;
+        string loai;
+        public Vang() : base()
+        {
+            tuoi = 0;
+            soluong = 0;
+            loai = "";
+            setVang(true);
+        }
+        public Vang(int masp, string tensp, string hangsx, float dongia,int tuoi,int soluong,string loai) : base( masp,  tensp,  hangsx,  dongia)
+        {
+            this.tuoi= tuoi;
+            this.soluong = soluong;
+            this.loai = loai;
+            setVang(true);
+        }
+        public double xetgiamgia()
+        {
+            double giam = 0;
+            switch (tuoi)
+            {
+                case 96:
+                    {
+                        giam = 0.3;
+                        break;
+                    }
+                case 97:
+                    {
+                        giam = 0.2;
+                        break;
+                    }
+                case 98:
+                    {
+                        giam = 0.1;
+                        break;
+                    }
+                default:
+                    {
+                        giam = 0;
+                        break;
+                    }
+            }
+            return giam;
+        }
+        public double tinhTong()
+        {
+            return getDongia()*soluong*(1-xetgiamgia());
+        }
+        public void Xuat()
+        {
+            base.Xuat();
+            Console.Write("tuoi sp: " + tuoi);
+            Console.Write("so luong sp: " + soluong);
+            Console.Write("loai sp: " + loai);
+        }
+        public void Nhap()
+        {
+            base.Nhap();
+            Console.Write("tuoi sp: ") ;
+            tuoi = (int)kt_Nhap();
+            Console.Write("so luong sp: ");
+            soluong= (int)kt_Nhap();
+            Console.Write("loai sp: ");
+            loai = Console.ReadLine();
+        }
+        public string getLoai() { return loai; }
+    }
+    class Bac : VangBac
+    {
+        int soluong;
+        string loai,kieu;
+        public Bac() : base()
+        {
+            kieu = "";
+            soluong = 0;
+            loai = "";
+            setVang(false);
+        }
+        public Bac(int masp, string tensp, string hangsx, float dongia, string kieu, int soluong, string loai) : base(masp, tensp, hangsx, dongia)
+        {
+            this.kieu = kieu;
+            this.soluong = soluong;
+            this.loai = loai;
+            setVang(false);
+        }
+        public double xetgiamgia()
+        {
+            double giam = 0;
+            if (kieu.Equals("day chuyen"))
+            {
+                giam = giamDaychuyen();
+            }
+            else if (kieu.Equals("lac"))
+            {
+                giam = giamLac();
+            }
+            else { giam = 0; }
+            return giam;
+        }
+        public double giamDaychuyen()
+        {
+            double giam = 0;
+            if (loai.Equals("8k"))
+            {
+                giam = 0.4;
+            }
+            else 
+            {
+                giam = 0;
+            }
+            return giam;
+        }
+        public double giamLac()
+        {
+            double giam = 0;
+            if (loai.Equals("10k"))
+            {
+                giam = 0.2;
+            }
+            else 
+            {
+                giam = 0;
+            }
+            return giam;
+        }
+        public double tinhTong()
+        {
+            return getDongia() * soluong * (1 - xetgiamgia());
+        }
+        public void Xuat()
+        {
+            base.Xuat();
+            Console.Write("so luong sp: " + soluong);
+            Console.Write("loai sp: " + loai);
+            Console.Write("kieu sp: " + kieu);
+        }
+        public void Nhap()
+        {
+            base.Nhap();
+            Console.Write("so luong sp: ");
+            soluong = (int)kt_Nhap();
+            Console.Write("loai sp(10k / 8k): ");
+            loai = Console.ReadLine();
+            Console.Write("kieu sp(day chuyen / lac): ");
+            kieu = Console.ReadLine();
+        }
+        public string getLoai() { return loai; }
+        public string getKieu() { return kieu; }
+    }
+    class Program
+    {
+        void chondoituong(VangBac[] vangBacs)
+        {
+
+        }
+        void xuatDoituonglavang(VangBac[] vangBacs, int index)
+        {
+            for(int i = 1; i < index; i++)
+            {
+                if (vangBacs[i].getVang()) { vangBacs[i].Xuat(); }                
+            }
+        }
+        void xuatDoituonghangPNJ(VangBac[] vangBacs, int index)
+        {
+            for (int i = 1; i < index; i++)
+            {
+                if (vangBacs[i].getHang().Equals("pnj")) { vangBacs[i].Xuat(); }
+            }
+        }
+        void xuatDoituonglaBac10k(VangBac[] vangBacs, int index)
+        {
+            for (int i = 1; i < index; i++)
+            {
+                if (vangBacs[i].getVang() == false) 
+                {
+                    Bac bac = (Bac)vangBacs[i];
+                    if (bac.getLoai().Equals("10k"))
+                    {
+                        bac.Xuat();
+                    }
+                }
+            }
+        }
+        void xuatDoituongkieudaychuyen(VangBac[] vangBacs, int index)
+        {
+            for (int i = 1; i < index; i++)
+            {
+                if (vangBacs[i].getVang() == false)
+                {
+                    Bac bac = (Bac)vangBacs[i];
+                    if (bac.getKieu().Equals("day chuyen"))
+                    {
+                        bac.Xuat();
+                    }
+                }
+            }
+        }
+        void sapxeptheodongia(VangBac[] vangBacs, int index)
+        {
+            VangBac[] listTam = vangBacs;
+            for (int i = 1; i < index; i++)
+            {
+                for (int j = 1; j < index - 1; j++)
+                {
+                    if(listTam[j].getDongia()> listTam[j + 1].getDongia())
+                    {
+                        VangBac tam = listTam[j+1];
+                        listTam[j + 1]= listTam[j];
+                        listTam[j] = tam;
+                    }
+                }
+            }
+            for (int i = 1; i < index; i++)
+            {
+                listTam[i].Xuat();
+            }
+        }
+        void play(VangBac[] vangBacs)
+        {
+            int i = 0;
+            int index = 1;
+            while (i!=9)
+            {
+                Console.WriteLine("nhap phuong thuc lua chon cua ban: ");
+                Console.WriteLine("1) chon doi tuong trong danh sach: ");
+                Console.WriteLine("2) nhap thong tin cho doi tuong moi la vang : ");
+                Console.WriteLine("3) nhap thong tin cho doi tuong moi la bac : ");
+                Console.WriteLine("4) xuat ra cac san pham la vang : ");
+                Console.WriteLine("5) xuat ra cac san pham cua hang PNJ : ");
+                Console.WriteLine("6) xuat ra cac san pham loai bac 10k : ");
+                Console.WriteLine("7) xuat ra cac san pham kieu day chuyen : ");
+                Console.WriteLine("8) sap sep cac san pham theo thu tu tang dan : ");
+                i = int.Parse(Console.ReadLine());
+                switch (i)
+                {
+                    case 1:
+                        {
+                            Console.Write("1) chon doi tuong trong danh sach: ");
+                            chondoituong(vangBacs);
+                            break;
+                        }
+                    case 2:
+                        {
+                            Console.Write("2) nhap thong tin cho doi tuong moi la vang : ");
+                            vangBacs[index] = new Vang();
+                            vangBacs[index].Nhap();
+                            index++;
+                            break;
+                        }
+                    case 3:
+                        {
+                            Console.Write("3) nhap thong tin cho doi tuong moi la bac : ");
+                            vangBacs[index] = new Bac();
+                            vangBacs[index].Nhap();
+                            index++;
+                            break;
+                        }
+                    case 4:
+                        {
+                            Console.Write("4) xuat ra cac san pham la vang : ");
+                            xuatDoituonglavang(vangBacs, index);
+                            break;
+                        }
+                    case 5:
+                        {
+                            Console.Write("5) xuat ra cac san pham cua hang PNJ : ");
+                            xuatDoituonghangPNJ(vangBacs, index);
+                            break;
+                        }
+                    case 6:
+                        {
+                            Console.Write("6) xuat ra cac san pham loai bac 10k : ");
+                            xuatDoituonglaBac10k(vangBacs, index);
+                            break;
+                        }
+                    case 7:
+                        {
+                            Console.Write("7) xuat ra cac san pham kieu day chuyen : ");
+                            xuatDoituongkieudaychuyen(vangBacs, index);
+                            break;
+                        }
+                    case 8:
+                        {
+                            Console.Write("8) sap sep cac san pham theo thu tu tang dan : ");
+                            sapxeptheodongia(vangBacs, index);
+                            break;
+                        }
+                    default:
+                        {
+                            Console.Write("vui long nhap gia tri tu 1=>9");
+                            break;
+                        }
+                }
+            }
+            
+        }
+        static void Main(string[] args)
+        {
+            Program p = new Program();
+            VangBac[] listVangbac = new VangBac[20];
+            p.play(listVangbac);
+        }
+    }
+}
