@@ -1,0 +1,13 @@
+/home/taquangkhoi/GitRep/learningCsharp/Csharp-with-Microsoft/bin/Debug/netcoreapp3.1/Csharp-with-Microsoft
+/home/taquangkhoi/GitRep/learningCsharp/Csharp-with-Microsoft/bin/Debug/netcoreapp3.1/Csharp-with-Microsoft.deps.json
+/home/taquangkhoi/GitRep/learningCsharp/Csharp-with-Microsoft/bin/Debug/netcoreapp3.1/Csharp-with-Microsoft.runtimeconfig.json
+/home/taquangkhoi/GitRep/learningCsharp/Csharp-with-Microsoft/bin/Debug/netcoreapp3.1/Csharp-with-Microsoft.runtimeconfig.dev.json
+/home/taquangkhoi/GitRep/learningCsharp/Csharp-with-Microsoft/bin/Debug/netcoreapp3.1/Csharp-with-Microsoft.dll
+/home/taquangkhoi/GitRep/learningCsharp/Csharp-with-Microsoft/bin/Debug/netcoreapp3.1/Csharp-with-Microsoft.pdb
+/home/taquangkhoi/GitRep/learningCsharp/Csharp-with-Microsoft/obj/Debug/netcoreapp3.1/Csharp-with-Microsoft.csprojAssemblyReference.cache
+/home/taquangkhoi/GitRep/learningCsharp/Csharp-with-Microsoft/obj/Debug/netcoreapp3.1/Csharp-with-Microsoft.AssemblyInfoInputs.cache
+/home/taquangkhoi/GitRep/learningCsharp/Csharp-with-Microsoft/obj/Debug/netcoreapp3.1/Csharp-with-Microsoft.AssemblyInfo.cs
+/home/taquangkhoi/GitRep/learningCsharp/Csharp-with-Microsoft/obj/Debug/netcoreapp3.1/Csharp-with-Microsoft.csproj.CoreCompileInputs.cache
+/home/taquangkhoi/GitRep/learningCsharp/Csharp-with-Microsoft/obj/Debug/netcoreapp3.1/Csharp-with-Microsoft.dll
+/home/taquangkhoi/GitRep/learningCsharp/Csharp-with-Microsoft/obj/Debug/netcoreapp3.1/Csharp-with-Microsoft.pdb
+/home/taquangkhoi/GitRep/learningCsharp/Csharp-with-Microsoft/obj/Debug/netcoreapp3.1/Csharp-with-Microsoft.genruntimeconfig.cache

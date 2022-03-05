@@ -1,0 +1,4 @@
+# những phải dùng window mơi code c# được sao..
+# c# dựa vào nền .NET chỉ có trên windows nên còn chưa thích hợp với khôi bây giờ..
+# c ++ thì là c thêm hướng đối tượng..
+# c là hướng cấu trúc..

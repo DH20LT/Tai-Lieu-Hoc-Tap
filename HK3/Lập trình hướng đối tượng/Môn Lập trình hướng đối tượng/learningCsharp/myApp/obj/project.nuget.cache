@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "kcpSlPhZqCnruL8m0rkU/W4oEtWQYPZPf2cU3XvrX3a9wEeHikzhCkWPvJR87Bn5JUmdNM7oc+rXzePUTgKLvQ==",
+  "success": true,
+  "projectFilePath": "/home/taquangkhoi/GitRep/LearnC-Sharp/myApp/myApp.csproj",
+  "expectedPackageFiles": [
+    "/home/taquangkhoi/.nuget/packages/microsoft.aspnetcore.app.ref/3.1.2/microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+  ],
+  "logs": []
+}
