@@ -1,5 +1,5 @@
 # Học Kỳ 2
-Cấu trục máy tính
+Cấu trúc máy tính
 
 English 1A và 1B
 
