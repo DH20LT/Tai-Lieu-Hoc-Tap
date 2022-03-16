@@ -6,3 +6,7 @@
 	path = HK2
 	url = https://github.com/DH20LT/TLHT-HK2.git
 	branch = main
+[submodule "HK3"]
+	path = HK3
+	url = https://github.com/DH20LT/TLHT-HK3.git
+	branch = main
