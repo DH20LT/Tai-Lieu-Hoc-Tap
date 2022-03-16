@@ -1,0 +1,4 @@
+[submodule "HK1"]
+	path = HK1
+	url = https://github.com/DH20LT/TLHT-HK1.git
+	branch = main
