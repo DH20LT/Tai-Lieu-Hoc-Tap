@@ -1,0 +1,46 @@
+nhap vao so km ma taxi da cho chung ta di(0<km<50)
+
+<10 12k/km
+<30 11k/km
+<40 10k/km
+	9k/km
+
+xuat ra so km + so tien phai tra
+
+static void Main(string[] args)
+        {
+            int iTong = 0;
+            Console.WriteLine("vui long nhap so km : ");
+            int iKm = int.Parse(Console.ReadLine());
+            while (iKm <0||iKm>50)
+            {
+                Console.WriteLine("ban da nhap sai, vui long nhap lai: ");
+                iKm = int.Parse(Console.ReadLine());
+            }
+            if (iKm<10)
+            {
+                iTong = iTong + iKm * 12;
+            }
+            else
+            {
+                if (iKm < 30)
+                {
+                    iTong = iTong + iKm * 11;
+                }
+                else
+                {
+                    if (iKm < 40)
+                    {
+                        iTong = iTong + iKm * 10;
+                    }
+                    else
+                    {
+                        iTong = iTong + iKm * 9;
+                    }
+                }
+            }
+            Console.WriteLine("tong so tien phai tra cho " + iKm + " la: " + iTong * 1000 + " d");
+
+            Console.ReadLine();
+        }
+
